@@ -24,10 +24,20 @@ class TrendingImage extends Component {
   }
 
   render() {
+    let subtitle;
+    if(this.state.hover) {
+      subtitle = (
+        <div>
+          <h2>Title: {this.props.item.title}</h2>
+          <h2>Rating: {this.props.item.rating}</h2>
+        </div>
+      )
+    }
+
     return (
       <div onMouseOver={this.mouseOver} onMouseLeave={this.mouseOut}>
         <img src={this.props.item.images.preview_gif.url} alt={this.props.item.title}/>
-        {this.state.hover ? <h2 id="1">{this.props.item.title}</h2> : null}
+        {subtitle}
       </div>
     )
   }
