@@ -1,27 +1,46 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoaded : false,
+      items : [],
+    }
+  }
+
+  componentDidMount() {
+    const api_key = "0d05b586e3ff4884b6dc9837d9601726";
+    fetch("https://api.giphy.com/v1/gifs/trending?api_key="+api_key)
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          isLoaded : true,
+          items : json,
+        })
+      })
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    var {isLoaded, items} = this.state;
+
+    if(!isLoaded) {
+      return <div>Loading</div>;
+    }
+    else {
+      return (
+        <div className="App">
+          <ul>
+            {items.data.map(item => (
+              <li key={item.id}>
+                  <img src={item.images.preview_gif.url} key={item.id} alt={item.title}/>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
   }
 }
 
