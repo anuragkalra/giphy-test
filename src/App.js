@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchBox from './SearchBox';
 import TrendingImage from './TrendingImage';
-import {Jumbotron, Button} from 'reactstrap';
+//import {Jumbotron, Button} from 'reactstrap';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -17,8 +17,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const url = "https://api.giphy.com/v1/gifs/trending?api_key=";
     const api_key = "0d05b586e3ff4884b6dc9837d9601726";
-    fetch("https://api.giphy.com/v1/gifs/trending?api_key="+api_key)
+    const limit = 50;
+    fetch(url+api_key+"&limit="+limit)
       .then(res => res.json())
       .then(json => {
         this.setState({
