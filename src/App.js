@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import SearchBox from './SearchBox';
 import TrendingImage from './TrendingImage';
+import {Jumbotron, Button} from 'reactstrap';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
   constructor(props) {
@@ -41,6 +44,7 @@ class App extends Component {
     else {
       return (
         <div className="App">
+          <SearchBox />
           <ul>
             {items.data.map(item => (
               <li key={item.id} onClick={() => this.handleMouseClick(item.id)}>
