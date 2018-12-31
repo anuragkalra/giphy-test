@@ -1,9 +1,6 @@
-ul li {
-  display: inline;
-}
 li {
   padding: 10px;
-  background-color: blue;
+  background-color: lightblue;
 }
 
 li img {
@@ -12,9 +9,9 @@ li img {
 }
 
 li:hover {
-  background-color: green;
+  background-color: cyan;
 }
 
 li img:hover {
-  background-color: orange
+  background-color: orange;
 }

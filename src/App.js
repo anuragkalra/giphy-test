@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TrendingImage from './TrendingImage';
 import './App.css';
 
 class App extends Component {
@@ -34,7 +35,7 @@ class App extends Component {
           <ul>
             {items.data.map(item => (
               <li key={item.id}>
-                  <img src={item.images.preview_gif.url} key={item.id} alt={item.title}/>
+                  <TrendingImage name={item.title} item={item}/>
               </li>
             ))}
           </ul>
