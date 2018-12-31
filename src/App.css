@@ -1,3 +1,6 @@
+ul {
+  display: inline;
+}
 li {
   padding: 10px;
   background-color: lightblue;
@@ -8,10 +11,10 @@ li img {
   background-color: purple;
 }
 
-li:hover {
+/* li:hover {
   background-color: cyan;
 }
 
 li img:hover {
   background-color: orange;
-}
+} */
