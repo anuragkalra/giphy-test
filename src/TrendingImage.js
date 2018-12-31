@@ -28,8 +28,11 @@ class TrendingImage extends Component {
     if(this.state.hover) {
       subtitle = (
         <div>
-          <h2>Title: {this.props.item.title}</h2>
-          <h2>Rating: {this.props.item.rating}</h2>
+          <figcaption>
+          Title: {this.props.item.title}
+          <br />
+          Rating: {this.props.item.rating}
+          </figcaption>
         </div>
       )
     }

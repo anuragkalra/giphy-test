@@ -8,7 +8,9 @@ class App extends Component {
     this.state = {
       isLoaded : false,
       items : [],
+      selectedImage : "",
     }
+    this.handleMouseClick = this.handleMouseClick.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +25,13 @@ class App extends Component {
       })
   }
 
+  handleMouseClick(id) {
+    console.log(id);
+    this.setState({
+      selectedImage : id
+    })
+  }
+
   render() {
     var {isLoaded, items} = this.state;
 
@@ -34,7 +43,7 @@ class App extends Component {
         <div className="App">
           <ul>
             {items.data.map(item => (
-              <li key={item.id}>
+              <li key={item.id} onClick={() => this.handleMouseClick(item.id)}>
                   <TrendingImage name={item.title} item={item}/>
               </li>
             ))}

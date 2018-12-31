@@ -4,12 +4,7 @@ ul {
 li {
   padding: 10px;
   background-color: lightblue;
-}
-
-li img {
-  padding: 10px;
-  background-color: purple;
-}
+} 
 
 /* li:hover {
   background-color: cyan;
